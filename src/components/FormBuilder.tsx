@@ -1,9 +1,8 @@
-import React, { useState, useCallback } from 'react';
-import { Button, Form, Message, Icon, Segment, Divider } from 'semantic-ui-react';
-import { FormField } from './FormField';
-import { Form as IForm, FormField as IFormField, FieldType } from '../types/form';
+import React, { useState } from 'react';
+import { Button, Divider, Form, Icon, Message, Segment } from 'semantic-ui-react';
 import { api } from '../services/api';
-import { validateForm, ValidationError } from '../utils/validation';
+import { FieldType, Form as IForm, FormField as IFormField } from '../types/form';
+import { ValidationError } from '../utils/validation';
 
 interface FormBuilderProps {
   initialForm?: IForm;
@@ -20,7 +19,7 @@ export const FormBuilder: React.FC<FormBuilderProps> = ({ initialForm, onSave })
     updatedAt: '',
   });
 
-  const [errors, setErrors] = useState<ValidationError[]>([]);
+  const [errors] = useState<ValidationError[]>([]);
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState<string | null>(null);
   const [lastSaved, setLastSaved] = useState<Date | null>(null);

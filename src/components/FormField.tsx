@@ -55,7 +55,7 @@ export const FormField: React.FC<FormFieldProps> = ({
               key: opt.value,
               text: opt.label,
               value: opt.value,
-            }))}
+            })) || []}
             value={value || ''}
             onChange={(_, data) => onChange(data.value as string)}
             error={!!error}
